@@ -35,6 +35,10 @@ public class ServiceModel {
 		int desfloor=sc.nextInt();
 		int i=0;
 		int floorlimit=5;
+        if(curfloor<5&&desfloor==10) {
+		   lifts[lifts.length-1]=desfloor;	
+		}
+        else {
 		if(curfloor>=6) {
 			i=2;
 		}
@@ -61,6 +65,7 @@ public class ServiceModel {
 		lifts[index]=desfloor;
 		addLiftCapacity(index,capacityofthelift);
 		System.out.println(Arrays.toString(lifts));
+		}
 		}
 	}
 
