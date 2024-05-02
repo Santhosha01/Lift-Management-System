@@ -37,6 +37,7 @@ public class ServiceModel {
 		int floorlimit=5;
         if(curfloor<5&&desfloor==10) {
 		   lifts[lifts.length-1]=desfloor;	
+		 addLiftCapacity(lifts.length-1,capacityofthelift);
 		}
         else {
 		if(curfloor>=6) {
