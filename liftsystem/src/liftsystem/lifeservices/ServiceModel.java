@@ -1,5 +1,6 @@
 package liftsystem.lifeservices;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ServiceModel {
@@ -28,9 +29,9 @@ public class ServiceModel {
 		}
 		else {
 		System.out.println("\nAssign Lift to the User :");
-		System.out.println("\nEnter the Current floor No : ");
+		System.out.println("\nEnter the Current floor No (0-10) : ");
 		int curfloor=sc.nextInt();
-		System.out.println("Destination Floor No : ");
+		System.out.println("Enter the Destination Floor No (0-10) : ");
 		int desfloor=sc.nextInt();
 		int i=0;
 		int floorlimit=5;
@@ -47,14 +48,24 @@ public class ServiceModel {
 			minpath=Math.abs(curfloor-lifts[i]);
 			if(mindis>minpath) {
 	       		mindis=Math.min(minpath, mindis);
-	       		if(lifts[i]!=-1&&capacityofthelift[i]!=cap) {
+	       		if(capacityofthelift[i]<=5) {
+	       		if(lifts[i]!=-1) {
    			      index=i;
+	       		}
+	       		}
+	       		else {
+	       			System.out.println("Lift reaches its Capacity");
 	       		}
 			}
 		}
 		lifts[index]=desfloor;
-		capacityofthelift[index]+=1;
+		addLiftCapacity(index,capacityofthelift);
+		System.out.println(Arrays.toString(lifts));
 		}
+	}
+
+	private static void addLiftCapacity(int index,int capacityofthelift[]) {
+		capacityofthelift[index]+=1;
 	}
 
 	public void displayLifts(int[] lifts) {
