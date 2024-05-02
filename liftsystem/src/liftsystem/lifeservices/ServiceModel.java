@@ -17,6 +17,16 @@ public class ServiceModel {
 	}
 
 	public static void assignLift(int lifts[],int capacityofthelift[],int cap) {
+		int count=0;
+		for(int i=0;i<lifts.length;i++) {
+			if(lifts[i]==-1) {
+				count++;
+			}
+		}
+		if(count==lifts.length) {
+			System.out.println("\n Sorry,Lifts are Out of Service");
+		}
+		else {
 		System.out.println("\nAssign Lift to the User :");
 		System.out.println("\nEnter the Current floor No : ");
 		int curfloor=sc.nextInt();
@@ -44,7 +54,7 @@ public class ServiceModel {
 		}
 		lifts[index]=desfloor;
 		capacityofthelift[index]+=1;
-//		System.out.println("capacity of Each lifts : "+Arrays.toString(capacityofthelift));
+		}
 	}
 
 	public void displayLifts(int[] lifts) {
