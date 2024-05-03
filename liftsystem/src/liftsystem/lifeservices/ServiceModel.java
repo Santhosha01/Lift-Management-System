@@ -35,14 +35,14 @@ public class ServiceModel {
 		int desfloor=sc.nextInt();
 		int i=0;
 		int floorlimit=5;
-        if(curfloor<5&&desfloor==10) {
+        if(curfloor!=0&&curfloor<5&&desfloor>=6) {
 		   lifts[lifts.length-1]=desfloor;	
-		 addLiftCapacity(lifts.length-1,capacityofthelift);
+		   addLiftCapacity(lifts.length-1,capacityofthelift);
 		}
         else {
-		if(curfloor>=6) {
-			i=2;
-		}
+        if(curfloor==0&&desfloor>0||curfloor>=6) {
+        	i=2;
+        }
 		if(curfloor>=6&&desfloor==0) {
 			i=2;
 			floorlimit=4;
