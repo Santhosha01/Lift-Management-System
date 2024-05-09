@@ -1,4 +1,4 @@
-package liftsystem.liftservices;
+package liftsystem.com.santhosh.liftapplication.liftservices;
 
 import java.util.Arrays;
 import java.util.Scanner;
