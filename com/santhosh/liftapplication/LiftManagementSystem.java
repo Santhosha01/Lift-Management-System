@@ -1,8 +1,9 @@
-package liftsystem.mainMethod;
+package liftsystem.com.santhosh.liftapplication;
+
+import liftsystem.com.santhosh.liftapplication.liftservices.ServiceView;
 
 import java.util.Scanner;
 
-import liftsystem.liftservices.ServiceView;
 
 public class LiftManagementSystem {
 
