@@ -1,6 +1,5 @@
-package liftsystem.liftservices;
+package liftsystem.com.santhosh.liftapplication.liftservices;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ServiceModel {
@@ -10,6 +9,7 @@ public class ServiceModel {
     public ServiceModel(ServiceView serviceView) {
         this.serviceView = serviceView;
     }
+
 
     public void enterLiftPositions(int lifts[]) {
         System.out.println("Enter " + lifts.length + " initial lift positions :");
@@ -34,7 +34,6 @@ public class ServiceModel {
             System.out.println("Enter User Destination Floor No (0-10) : ");
             int desfloor = sc.nextInt();
             int i = 0;
-            int floorlimit = 5;
             if ((curfloor < 5 && desfloor >= 6) || (curfloor > 5 && desfloor < 6)) {
                 lifts[lifts.length - 1] = desfloor;
                 addLiftCapacity(lifts.length - 1, capacityofthelift);
@@ -44,7 +43,7 @@ public class ServiceModel {
                 }
                 int mindis = Integer.MAX_VALUE;
                 int minpath = 0, index = 0;
-                for (; i < floorlimit; i++) {
+                for (; i < lifts.length; i++) {
                     minpath = Math.abs(curfloor - lifts[i]);
                     if (mindis > minpath) {
                         mindis = Math.min(minpath, mindis);
@@ -57,7 +56,6 @@ public class ServiceModel {
                 }
                 lifts[index] = desfloor;
                 addLiftCapacity(index, capacityofthelift);
-                System.out.println(Arrays.toString(lifts));
             }
         }
     }
@@ -67,7 +65,7 @@ public class ServiceModel {
     }
 
     public void displayLifts(int[] lifts) {
-        new ServiceView().printLifts(lifts);
+        serviceView.printLifts(lifts);
     }
 
 }
